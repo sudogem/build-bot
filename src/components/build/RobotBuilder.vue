@@ -25,7 +25,12 @@
 
       <!-- override the more styles to the head border style -->
       <!-- <div class="top part" :style="[headBorderStyle, moreStyles]"> -->
-      <div class="top part" :style="headBorderStyle">
+
+      <!-- applying the css class name sale-border -->
+      <!-- <div class="top part" :class="['sale-border']"> -->
+
+      <!-- applying computed saleBorderClass -->
+      <div class="top part" :class="[saleBorderClass]">
         <div class="robot-name">
           {{ selectedRobot.head.title }}
           <!-- <span v-show="selectedRobot.head.onSale" class="sale">Sale!</span> -->
@@ -90,6 +95,9 @@ export default {
     };
   },
   computed: {
+    saleBorderClass() {
+      return this.selectedRobot.head.onSale ? 'sale-border' : '';
+    },
     selectedRobot() {
       return {
         head: availableParts.heads[this.selectedHeadIndex],

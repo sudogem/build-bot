@@ -114,3 +114,7 @@ td, th {
   padding-left: 20px;
   text-align: left;
 }
+
+.sale-border {
+  border: 3px solid red;
+}
