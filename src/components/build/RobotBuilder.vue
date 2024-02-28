@@ -20,7 +20,9 @@
       </table>
     </div>
     <div class="top-row">
-      <div class="top part">
+      <!-- inline style by using :style -->
+      <!-- <div class="top part" :style="{ border: '3px solid red' }"> -->
+      <div class="top part" :style="headBorderStyle">
         <div class="robot-name">
           {{ selectedRobot.head.title }}
           <!-- <span v-show="selectedRobot.head.onSale" class="sale">Sale!</span> -->
@@ -94,6 +96,9 @@ export default {
         base: availableParts.bases[this.selectedBaseIndex],
       };
     },
+    headBorderStyle() {
+      return { border: '3px solid red' };
+    },
   },
   methods: {
     selectNextHead() {
@@ -138,4 +143,5 @@ export default {
 
 </script>
 
-<style src="./RobotBuilder.css"></style>
+<!-- local scope css -->
+<style scope src="./RobotBuilder.css"></style>

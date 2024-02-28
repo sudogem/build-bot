@@ -26,17 +26,14 @@ export default {
 };
 </script>
 
-<style>
-body {
-  background: linear-gradient(to bottom, #555, #999);
-  background-attachment: fixed;
-}
-main {
-  margin:0 auto;
-  padding: 30px;
-  background: #fff;
-  width: 1024px   ;
-  min-height: 300px;
+<!-- global css here -->
+<style src="./App.global.css"></style>
+
+<!-- local scope css -->
+<style scoped>
+.content >>> .robot-name { /* deep target to the child component css class robot-name */
+  color: green;
+  font-weight: bold;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
