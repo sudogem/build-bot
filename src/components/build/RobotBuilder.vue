@@ -22,6 +22,9 @@
     <div class="top-row">
       <!-- inline style by using :style -->
       <!-- <div class="top part" :style="{ border: '3px solid red' }"> -->
+
+      <!-- override the more styles to the head border style -->
+      <!-- <div class="top part" :style="[headBorderStyle, moreStyles]"> -->
       <div class="top part" :style="headBorderStyle">
         <div class="robot-name">
           {{ selectedRobot.head.title }}
@@ -97,7 +100,12 @@ export default {
       };
     },
     headBorderStyle() {
-      return { border: '3px solid red' };
+      if (this.selectedRobot.head.onSale) {
+        return { border: '3px solid red' };
+      // eslint-disable-next-line no-else-return
+      } else {
+        return { border: '3px solid green' };
+      }
     },
   },
   methods: {
