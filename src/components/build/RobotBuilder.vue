@@ -1,6 +1,24 @@
 <!-- eslint-disable vuejs-accessibility/alt-text -->
 <template>
-  <div>
+  <div class="content">
+    <button class="add-to-cart" @click="addToCart()">Add to cart</button>
+    <div class="cart">
+      <h2>Cart</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Robot</th>
+            <th>Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(r, index) in cart" :key="index">
+            <td>{{  r.head.title }}</td>
+            <td>{{  r.cost }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <div class="top-row">
       <div class="top part">
         <div class="robot-name">
@@ -63,6 +81,7 @@ export default {
       selectedRightArmIndex: 0,
       selectedTorsoIndex: 0,
       selectedBaseIndex: 0,
+      cart: [],
     };
   },
   computed: {
@@ -108,6 +127,11 @@ export default {
     },
     selectNextBase() {
       this.selectedBaseIndex = getNextValidIndex(this.selectedBaseIndex, availableParts.bases.length);
+    },
+    addToCart() {
+      const robot = this.selectedRobot;
+      const cost = robot.head.cost + robot.leftArm.cost + robot.rightArm.cost + robot.torso.cost + robot.base.cost;
+      this.cart.push({ ...robot, cost });
     },
   },
 };

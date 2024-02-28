@@ -96,3 +96,21 @@
 .sale {
   color: red;
 }
+
+.content {
+  position: relative;
+}
+.add-to-cart {
+  position: absolute;
+  right: 30px;
+  padding: 5px;
+}
+.cart {
+  position: absolute;
+  right: 10px;
+  top: 50px;
+}
+td, th {
+  padding-left: 20px;
+  text-align: left;
+}
