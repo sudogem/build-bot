@@ -6,6 +6,10 @@
         <li class="nav-item">
           <img class="logo" src="./assets/build-a-bot-logo.png" />Build a bot
         </li>
+        <li>
+          User: {{ user.username }}
+          <button @click="changeUsername()">Change</button>
+        </li>
       </ul>
     </nav>
   </header>
@@ -24,6 +28,27 @@ export default {
   components: {
     RobotBuilder,
     // SearchPage,
+  },
+  data() {
+    // return {
+    //   username: 'John',
+    // };
+    return {
+      user: {
+        username: 'John',
+      },
+    };
+  },
+  provide() {
+    return {
+      user: this.user,
+    };
+  },
+  methods: {
+    changeUsername() {
+      // this.user = { username: 'Jane' } // will never update the username in the child
+      this.user.username = 'Connor';
+    },
   },
 };
 </script>

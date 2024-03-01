@@ -2,6 +2,7 @@
 <!-- eslint-disable vuejs-accessibility/click-events-have-key-events -->
 <template>
   <div class="part" :class="position">
+    <div>User: {{ user.username }}</div>
     <img :src="selectedPart.src" title="arm" @click="showPartInfo = !showPartInfo" />
     <button @click="selectPreviousPart()" class="prev-selector"></button>
     <button @click="selectNextPart()" class="next-selector"></button>
@@ -30,6 +31,7 @@ function getNextValidIndex(index, length) {
 }
 
 export default {
+  inject: ['user'],
   props: ['parts', 'position'],
   data() {
     return { selectedPartIndex: 0, showPartInfo: false };
