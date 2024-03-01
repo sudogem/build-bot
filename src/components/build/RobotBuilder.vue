@@ -1,7 +1,7 @@
 <!-- eslint-disable vuejs-accessibility/alt-text -->
 <template>
   <div class="content">
-
+    <div class="part-info" id="partInfo"></div>
     <div class="preview">
       <CollapsibleSection>
         <div class="preview-content">
@@ -20,7 +20,6 @@
       </CollapsibleSection>
       <button class="add-to-cart" @click="addToCart()">Add to cart</button>
     </div>
-
     <div class="cart">
       <h2>Cart</h2>
       <table>

@@ -140,6 +140,12 @@ td, th {
   width: 210px;
   height: 210px;
 }
+.part-info {
+  position: absolute;
+  left: 0;
+  width: 210px;
+  height: 210px;
+}
 .preview-content {
   border: 1px solid #999;
 }
