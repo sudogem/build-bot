@@ -6,6 +6,7 @@
 } 
 .part img {
   width:165px;
+  cursor: pointer;
 }
 .top-row {
   display:flex;
@@ -54,6 +55,20 @@
   width: 25px;
   height: 171px;
 }
+
+.left .prev-selector:after,  .right .prev-selector:after{
+  content: '\25B2'
+}
+.left .next-selector:after, .right .next-selector:after {
+  content: '\25BC'
+}
+.top .prev-selector:after, .bottom .prev-selector:after, .center .prev-selector:after{
+  content: '\25C4'
+}
+.top .next-selector:after, .bottom .next-selector:after, .center .next-selector:after{
+  content: '\25BA'
+}
+
 .center .prev-selector, .center .next-selector {
   opacity:0.8;
 }
@@ -102,13 +117,13 @@
 }
 .add-to-cart {
   position: absolute;
-  right: 30px;
   padding: 5px;
+  width: 100%;
 }
 .cart {
   position: absolute;
   right: 10px;
-  top: 50px;
+  top: 200px;
 }
 td, th {
   padding-left: 20px;
@@ -117,4 +132,31 @@ td, th {
 
 .sale-border {
   border: 3px solid red;
+}
+
+/* robot preview */
+.preview {
+  position: absolute;
+  right: 0;
+  width: 210px;
+  height: 210px;
+}
+.part-info {
+  position: absolute;
+  left: 0;
+  width: 210px;
+  height: 210px;
+}
+.preview-content {
+  border: 1px solid #999;
+}
+.preview img {
+  width: 50px;
+  height: 50px;
+}
+.rotate-right {
+  transform: rotate(90deg);
+}
+.rotate-left {
+  transform: rotate(-90deg);
 }
