@@ -2,7 +2,17 @@
 <!-- eslint-disable vuejs-accessibility/click-events-have-key-events -->
 <template>
   <div class="part" :class="position">
-    <img :src="selectedPart.src" title="arm" @click="showPartInfo()" />
+    <router-link :to="{
+        name: 'Part Info',
+        params: {
+          id: this.selectedPart.id,
+          partType: this.selectedPart.type,
+        },
+    }">
+      <img :src="selectedPart.src" title="arm" />
+    </router-link>
+    <!-- <img :src="selectedPart.src" title="arm" @click="showPartInfo()" /> -->
+
     <button @click="selectPreviousPart()" class="prev-selector"></button>
     <button @click="selectNextPart()" class="next-selector"></button>
     <span class="sale" v-show="selectedPart.onSale">Sale!</span>
@@ -43,8 +53,15 @@ export default {
     this.emitSelectedPart();
   },
   methods: {
+    // working with route params to navigate the link or using the router-link(see above)
     showPartInfo() {
-      this.$router.push('parts');
+      this.$router.push({
+        name: 'Part Info',
+        params: {
+          id: this.selectedPart.id,
+          partType: this.selectedPart.type,
+        },
+      });
     },
     emitSelectedPart() {
       // passing data to Parent component is by using $emit event
