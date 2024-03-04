@@ -10,6 +10,10 @@
         <li class="nav-item">
           <router-link :to="{name: 'Build'}" class="nav-link" exact>Build</router-link>
         </li>
+        <li class="nav-item shopping_cart">
+          <router-link to="/cart" class="nav-link" exact>Cart</router-link>
+          <div class="cart-items">{{  cartItems.length }}</div>
+        </li>
       </ul>
     </nav>
   </header>
@@ -27,6 +31,11 @@
 
 export default {
   name: 'App',
+  computed: {
+    cartItems() {
+      return this.$store.state.cart;
+    },
+  },
 };
 </script>
 
@@ -56,6 +65,24 @@ ul {
   padding: 5px 10px;
   font-size: 22px;
   border-right: 1px solid #bbb;
+}
+.shopping_cart {
+  position: relative;
+  margin-left: auto;
+  border-right: none;
+}
+.cart-items {
+  position: absolute;
+  top: -5px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: #2907ee;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #fff;
+  width: 25px;
+  height: 25px;
 }
 .logo {
   vertical-align: middle;

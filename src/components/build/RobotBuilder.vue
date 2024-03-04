@@ -22,20 +22,11 @@
     </div>
     <div class="cart">
       <h2>Cart</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Robot</th>
-            <th>Cost</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(r, index) in cart" :key="index">
-            <td>{{  r.head.title }}</td>
-            <td>{{  r.cost }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <ol class="item-list">
+        <li v-for="(r, index) in cart" :key="index">
+          {{  r.head.title }}
+        </li>
+      </ol>
     </div>
     <div class="top-row">
       <!-- inline style by using :style -->
@@ -134,7 +125,6 @@ export default {
   data() {
     return {
       availableParts,
-      cart: [],
       addToCartOption: false,
       selectedRobot: {
         // head: availableParts.heads[this.selectedHeadIndex],
@@ -157,6 +147,9 @@ export default {
       } else {
         return { border: '3px solid green' };
       }
+    },
+    cart() {
+      return this.$store.state.cart;
     },
   },
   methods: {
