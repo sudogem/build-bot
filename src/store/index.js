@@ -10,4 +10,9 @@ export default createStore({
       state.cart.push(robot);
     },
   },
+  getters: {
+    getCartSaleItems(state) {
+      return state.cart.filter((item) => item.head.onSale);
+    },
+  },
 });
