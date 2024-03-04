@@ -1,6 +1,6 @@
 <!-- eslint-disable vuejs-accessibility/alt-text -->
 <template>
-  <div class="content">
+  <div v-if="availableParts" class="content">
     <div class="part-info" id="partInfo"></div>
     <div class="preview">
       <CollapsibleSection>
@@ -106,12 +106,16 @@
 </template>
 
 <script>
-import availableParts from '../../data/parts';
+// import availableParts from '../../data/parts';
 import PartSelector from './PartSelector.vue';
 import CollapsibleSection from '../shared/CollapsibleSection.vue';
 
 export default {
   name: 'RobotBuilder',
+  created() {
+    // In order to kick-off the axios call from vue actions getParts() function, we need to dispatch an action.
+    this.$store.dispatch('getParts');
+  },
   beforeRouteLeave(to, from, next) {
     if (this.addToCartOption) {
       next(true);
@@ -124,7 +128,7 @@ export default {
   components: { PartSelector, CollapsibleSection },
   data() {
     return {
-      availableParts,
+      // availableParts,
       addToCartOption: false,
       selectedRobot: {
         // head: availableParts.heads[this.selectedHeadIndex],
@@ -137,6 +141,9 @@ export default {
     };
   },
   computed: {
+    availableParts() {
+      return this.$store.state.parts;
+    },
     saleBorderClass() {
       return this.selectedRobot.head.onSale ? 'sale-border' : '';
     },
