@@ -62,5 +62,10 @@ export default createRouter({
     name: 'Part Info',
     component: PartInfo,
     props: true,
+    beforeEnter: (to) => {
+      const isValidId = Number.isInteger(Number(to.params.id));
+      if (isValidId) return true;
+      return false;
+    },
   }],
 });
