@@ -46,7 +46,7 @@ export default createStore({
     // using Actions to save data to an API
     addRobotToCart({ commit, state }, robot) {
       const cart = [...state.cart, robot];
-      axios.post('/api/cart', cart)
+      return axios.post('/api/cart', cart) // If we want axios to return a promise, just add return
         .then(() => commit('addRobotToCart', robot));
     },
   },

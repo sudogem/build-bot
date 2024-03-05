@@ -166,7 +166,9 @@ export default {
       // this.cart.push({ ...robot, cost });
       // this.$store.commit('addRobotToCart', { ...robot, cost });
       // To call the axios.post() we dispatch addRobotToCart() actions
-      this.$store.dispatch('addRobotToCart', { ...robot, cost });
+      // and when the action completes successfully then we're going to call router.push to navigate to /cart
+      this.$store.dispatch('addRobotToCart', { ...robot, cost })
+        .then(() => this.$router.push('/cart'));
       this.addToCartOption = true;
     },
   },
