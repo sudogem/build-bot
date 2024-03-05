@@ -2,11 +2,12 @@
 import axios from 'axios';
 
 export default {
-  namespaced: true,
+  namespaced: true, // this is a namespaced module
   // NOTE: anything that we add to our state, we need to add here a default value
   state: {
     cart: [],
     parts: null,
+    foo: 'robots-foo',
   },
   mutations: {
     addRobotToCart(state, robot) {
@@ -21,6 +22,9 @@ export default {
   getters: {
     getCartSaleItems(state) {
       return state.cart.filter((item) => item.head.onSale);
+    },
+    foo(state) {
+      return `robots-getter/${state.foo}`;
     },
   },
   actions: {

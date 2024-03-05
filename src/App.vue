@@ -1,5 +1,17 @@
 <!-- eslint-disable vuejs-accessibility/alt-text -->
 <template>
+  <div>
+    Root foo: {{ rootFoo }} <br />
+    Root hello: {{ rootHello }} <br />
+    Robots foo: {{ robotsFoo }} <br />
+    Users foo: {{ usersFoo }} <br />
+    <br />
+    Root Getter foo: {{ rootGetterFoo }} <br />
+    Root Getter helloworld: {{ rootGetterHelloworld }} <br />
+    <br />
+    Robots Getter foo: {{ robotsGetterFoo }} <br />
+    Users Getter foo: {{ usersGetterFoo }} <br />
+  </div>
   <header>
     <nav>
       <ul>
@@ -32,6 +44,31 @@
 export default {
   name: 'App',
   computed: {
+    rootFoo() {
+      return this.$store.state.foo;
+    },
+    rootHello() {
+      return this.$store.state.hello;
+    },
+    robotsFoo() {
+      return this.$store.state.robots.foo;
+    },
+    usersFoo() {
+      return this.$store.state.users.foo;
+    },
+    rootGetterFoo() {
+      return this.$store.getters.foo;
+    },
+    rootGetterHelloworld() {
+      // return this.$store.getters.hello; // return empty string
+      return this.$store.getters.helloworld; // return root-getter/root-helloworld
+    },
+    robotsGetterFoo() {
+      return this.$store.getters['robots/foo']; // return robots-getter/robots-foo from namespaced module
+    },
+    usersGetterFoo() {
+      return this.$store.getters['users/foo']; // return empty string bec. this is not a namespaced module
+    },
     cartItems() {
       console.log('cartItems this.$store.state:', this.$store.state);
       // return this.$store.state.cart;
