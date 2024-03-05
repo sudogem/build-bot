@@ -164,7 +164,9 @@ export default {
       const robot = this.selectedRobot;
       const cost = robot.head.cost + robot.leftArm.cost + robot.rightArm.cost + robot.torso.cost + robot.base.cost;
       // this.cart.push({ ...robot, cost });
-      this.$store.commit('addRobotToCart', { ...robot, cost });
+      // this.$store.commit('addRobotToCart', { ...robot, cost });
+      // To call the axios.post() we dispatch addRobotToCart() actions
+      this.$store.dispatch('addRobotToCart', { ...robot, cost });
       this.addToCartOption = true;
     },
   },

@@ -11,6 +11,7 @@ export default createStore({
   },
   mutations: {
     addRobotToCart(state, robot) {
+      console.log('mutations.addRobotToCart robot:', robot);
       state.cart.push(robot);
     },
     updateParts(state, parts) {
@@ -41,6 +42,12 @@ export default createStore({
       axios.get('/api/parts')
         .then((result) => commit('updateParts', result.data))
         .catch(console.error);
+    },
+    // using Actions to save data to an API
+    addRobotToCart({ commit, state }, robot) {
+      const cart = [...state.cart, robot];
+      axios.post('/api/cart', cart)
+        .then(() => commit('addRobotToCart', robot));
     },
   },
 });
