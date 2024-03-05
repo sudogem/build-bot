@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import {
   createRouter,
-  createWebHashHistory,
+  createWebHistory,
 } from 'vue-router';
 import HomePage from '../components/home/HomePage.vue';
 import RobotBuilder from '../components/build/RobotBuilder.vue';
@@ -16,7 +16,7 @@ import SidebarBuild from '../components/sidebar/SidebarBuild.vue';
 import ShoppingCart from '../components/cart/ShoppingCart.vue';
 
 export default createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: [{
     path: '/',
     name: 'Home',

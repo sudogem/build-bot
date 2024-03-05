@@ -5,8 +5,7 @@
     <router-link :to="{
         name: 'Part Info',
         params: {
-          id2: this.selectedPart.id, // id: 'foo',
-          id: 'test',
+          id: this.selectedPart.id, // id: 'foo',
           partType: this.selectedPart.type,
         },
     }">
