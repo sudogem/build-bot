@@ -17,5 +17,9 @@ export default {
         .then((result) => commit('updateCurrentUser', result.data))
         .catch(console.error);
     },
+    addRobotToCart() {
+      // addRobotToCart() is called if the namespaced is false
+      console.log('module users > addRobotToCart() action');
+    },
   },
 };

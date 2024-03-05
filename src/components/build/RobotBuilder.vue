@@ -114,7 +114,7 @@ export default {
   name: 'RobotBuilder',
   created() {
     // In order to kick-off the axios call from vue actions getParts() function, we need to dispatch an action.
-    this.$store.dispatch('getParts');
+    this.$store.dispatch('robots/getParts');
   },
   beforeRouteLeave(to, from, next) {
     if (this.addToCartOption) {
@@ -167,7 +167,7 @@ export default {
       // this.$store.commit('addRobotToCart', { ...robot, cost });
       // To call the axios.post() we dispatch addRobotToCart() actions
       // and when the action completes successfully then we're going to call router.push to navigate to /cart
-      this.$store.dispatch('addRobotToCart', { ...robot, cost })
+      this.$store.dispatch('robots/addRobotToCart', { ...robot, cost })
         .then(() => this.$router.push('/cart'));
       this.addToCartOption = true;
     },

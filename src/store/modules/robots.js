@@ -2,6 +2,7 @@
 import axios from 'axios';
 
 export default {
+  namespaced: true,
   // NOTE: anything that we add to our state, we need to add here a default value
   state: {
     cart: [],
