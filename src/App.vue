@@ -33,7 +33,9 @@ export default {
   name: 'App',
   computed: {
     cartItems() {
-      return this.$store.state.cart;
+      console.log('cartItems this.$store.state:', this.$store.state);
+      // return this.$store.state.cart;
+      return this.$store.state.robots.cart;
     },
   },
 };
