@@ -40,13 +40,19 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 
 export default {
   name: 'App',
   computed: {
-    rootFoo() {
-      return this.$store.state.foo;
-    },
+    // ...mapState(['foo'])
+    ...mapState({ // this is shorthand syntax to rootFoo()
+      rootFoo: 'foo',
+      robotsFoo: (state) => state.robots.foo,
+    }),
+    // rootFoo() {
+    //   return this.$store.state.foo;
+    // },
     rootHello() {
       return this.$store.state.hello;
     },
