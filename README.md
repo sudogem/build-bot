@@ -1,5 +1,8 @@
 # build-bot
 
+## Requirements
+Run the server - https://github.com/sudogem/build-bot-server
+
 ## Project setup
 ```
 npm install
